@@ -23,6 +23,7 @@
 [Sources]
   ConfigurationManager.c
   AslTables/Dsdt.asl
+  AslTables/Hmat.c
   AslTables/SsdtPci.asl
 
 [Packages]

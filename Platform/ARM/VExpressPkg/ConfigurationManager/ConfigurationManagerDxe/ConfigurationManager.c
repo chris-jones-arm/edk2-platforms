@@ -25,6 +25,7 @@
 #include "ArmPlatform.h"
 #include "ConfigurationManager.h"
 #include "Platform.h"
+#include "AslTables/Hmat.h"
 
 /** The platform configuration repository information.
 */
@@ -77,6 +78,13 @@ EDKII_PLATFORM_REPOSITORY_INFO VExpressPlatRepositoryInfo = {
       CREATE_STD_ACPI_TABLE_GEN_ID (EStdAcpiTableIdDbg2),
       NULL
     },
+    // HMAT table
+    {
+      EFI_ACPI_6_4_HETEROGENEOUS_MEMORY_ATTRIBUTE_TABLE_SIGNATURE,
+      0, // Unused
+      CREATE_STD_ACPI_TABLE_GEN_ID (EStdAcpiTableIdRaw),
+      (EFI_ACPI_DESCRIPTION_HEADER*)&HmatTable
+    },
 
     // Note: The last 3 tables in this list are for FVP RevC only.
     // IORT Table - FVP RevC
@@ -99,7 +107,7 @@ EDKII_PLATFORM_REPOSITORY_INFO VExpressPlatRepositoryInfo = {
       0, // Unused
       CREATE_STD_ACPI_TABLE_GEN_ID (EStdAcpiTableIdSsdt),
       (EFI_ACPI_DESCRIPTION_HEADER*)ssdtpci_aml_code
-    },
+    }
   },
 
   // Boot architecture information
